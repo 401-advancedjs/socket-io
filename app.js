@@ -1,5 +1,10 @@
 'use strict';
 
+/**
+ * Starts event-driven process
+ * @module app.js
+ *
+ * */
 const socketIOClient = require('socket.io-client');
 
 const events = require('./util/events.js');
@@ -8,6 +13,11 @@ const {readFile, upperCase, writeFile} = require('./modules/read-write.js');
 
 const socket = socketIOClient.connect(constants.SERVER_URL + constants.PORT);
 
+/**
+ * Reads file, converts text to upper case, rewrites file
+ * @function alterFile
+ * @param {string} file path
+ * */
 async function alterFile(file){
   const read = await readFile(file);
   const upperCaseValue = upperCase(read);

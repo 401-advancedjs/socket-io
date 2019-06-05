@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * console logs either successful message saved or error
+ * @module logger.js
+ * */
 const socketIOClient = require('socket.io-client');
 const events = require('./util/events.js');
 const constants = require('./util/constants.js');

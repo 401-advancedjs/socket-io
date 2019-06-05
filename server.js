@@ -1,8 +1,13 @@
 'use strict';
+/**
+ * Listens for events, signals appropriate clients
+ * @module server.js
+ * */
 
 const events = require('./util/events.js');
 const constants = require('./util/constants.js');
 const socketIO = require('socket.io')(constants.PORT);
+
 
 socketIO.on('connection', socket => {
     console.log('Socket Connected: ', socket.id);
