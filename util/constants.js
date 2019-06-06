@@ -6,6 +6,6 @@
  * */
 
 module.exports = {
-    PORT: 3000,
-    SERVER_URL: 'http://localhost:',
+  PORT: 3000,
+  SERVER_URL: 'http://localhost:',
 };
