@@ -28,10 +28,4 @@ alterFile(file).catch(error => {
   QClient.publish('files', events.FILE_ERROR_EVENT, error);
 });
 
-//startercode
-// const socketIOClient = require('socket.io-client');
-// const constants = require('./util/constants.js');
-// const socket = socketIOClient.connect(constants.SERVER_URL + constants.PORT);
-// socket.emit(events.FILE_SAVED_EVENT, write);
-// socket.emit(events.FILE_ERROR_EVENT, error);
 

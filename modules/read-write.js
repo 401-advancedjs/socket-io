@@ -13,7 +13,7 @@ const util = require('util');
  * @param {string} file path
  * */
 const readFile = (file) => {
-    return util.promisify(fs.readFile)(file)
+  return util.promisify(fs.readFile)(file);
 };
 
 /**
@@ -22,7 +22,7 @@ const readFile = (file) => {
  * @param {buffer} data to be converted
  * */
 const upperCase = (data) => {
-    return data.toString().toUpperCase();
+  return data.toString().toUpperCase();
 };
 
 /**
@@ -32,8 +32,8 @@ const upperCase = (data) => {
  * @param {string} data to be written
  * */
 const writeFile = (file, data) => {
-    return util.promisify(fs.writeFile)(file, data)
-        .then( () => 'Message saved')
+  return util.promisify(fs.writeFile)(file, data)
+    .then( () => 'Message saved');
 };
 
 module.exports = {readFile, upperCase, writeFile};
