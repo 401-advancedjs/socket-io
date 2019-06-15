@@ -1,17 +1,31 @@
 'use strict';
 
-const fs = require('fs');
+/**
+ * Starts event-driven process
+ * @module app.js
+ *
+ * */
 
-const alterFile = (file) => {
-  fs.readFile( file, (err, data) => {
-    if(err) { throw err; }
-    let text = data.toString().toUpperCase();
-    fs.writeFile( file, Buffer.from(text), (err, data) => {
-      if(err) { throw err; }
-      console.log(`${file} saved`);
-    });
-  });
-};
+const QClient = require('@nmq/q/client');
+const events = require('./util/events.js');
+const {readFile, upperCase, writeFile} = require('./modules/read-write.js');
+
+
+/**
+ * Reads file, converts text to upper case, rewrites file
+ * @function alterFile
+ * @param {string} file path
+ * */
+async function alterFile(file){
+  const read = await readFile(file);
+  const upperCaseValue = upperCase(read);
+  const write = await writeFile(file, upperCaseValue);
+  QClient.publish('files', events.FILE_SAVED_EVENT, write);
+}
 
 let file = process.argv.slice(2).shift();
-alterFile(file);
+alterFile(file).catch(error => {
+  QClient.publish('files', events.FILE_ERROR_EVENT, error);
+});
+
+

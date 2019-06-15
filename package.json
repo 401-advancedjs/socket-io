@@ -4,11 +4,13 @@
   "description": "Events Lab",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "jest --verbose --coverage"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@nmq/q": "^1.0.3",
     "jest": "^23.6.0"
   }
 }
