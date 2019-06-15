@@ -4,6 +4,7 @@
   "description": "Events Lab",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "jest --verbose --coverage"
   },
   "author": "",
